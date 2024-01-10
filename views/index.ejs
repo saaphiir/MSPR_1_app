@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon site avec EJS</title>
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+    <img src="/images/wildlens.png" class="bandeau">
+    
+    <div class="video_align">
+        <video id="videoElement" autoplay> Votre navigateur ne détecte aucune caméra.</video>
+
+        <script>
+            // Obtenez l'élément vidéo
+            const video = document.getElementById('videoElement');
+
+            // Demandez l'accès à la caméra
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(stream => {
+                    video.srcObject = stream;
+                })
+                .catch(err => {
+                    console.error("Erreur: " + err);
+                });
+        </script>
+    </div>
+    <div class="vertical-line"></div>
+    <div class="horizontal-line"></div>
+
+</body>
+</html>

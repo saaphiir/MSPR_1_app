@@ -1,0 +1,60 @@
+html {
+    overflow: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #ff0000;
+    overflow: hidden; /* Empêche le défilement */
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.bandeau {
+    max-width: auto; /* Prend toute la largeur de l'écran */
+    max-height: auto; /* Ajuste la hauteur en fonction de la taille de l'image */
+    position: fixed; /* Fixe l'image pour qu'elle reste en haut */
+    top: 0; /* Positionne l'image tout en haut de la page */
+    left: 0; /* Positionne l'image tout à gauche */
+    z-index: 0; /* Assure que l'image est au-dessus des autres éléments */
+}
+
+.video_align {
+    display: flex;
+    justify-content: center; /* Centre l'image horizontalement */
+    align-items: center;     /* Centre l'image verticalement */
+    height: 100vh;           /* Hauteur de la fenêtre de visualisation */
+    margin-top: 1%;
+
+}
+
+video {
+    transform: rotate(90deg); /* Rotation de 90 degrés */
+    max-width: auto;
+    max-height: auto;
+}
+
+.vertical-line {
+    position: fixed; /* Position fixe pour la rendre visible peu importe le défilement */
+    top: 0; /* Ajustez la position si nécessaire */
+    bottom: 0; /* Ajustez la position si nécessaire */
+    left: 50%; /* Centre horizontalement */
+    width: 1px; /* Largeur de la ligne */
+    background-color: black; /* Couleur de la ligne */
+    z-index: 9999; /* Assurez-vous qu'elle soit au-dessus de tout autre élément */
+}
+
+.horizontal-line {
+    position: fixed; /* Position fixe pour la rendre visible peu importe le défilement */
+    left: 0; /* Ajustez la position si nécessaire */
+    right: 0; /* Ajustez la position si nécessaire */
+    top: 50%; /* Centre verticalement */
+    height: 1px; /* Hauteur de la ligne */
+    background-color: black; /* Couleur de la ligne */
+    z-index: 9999; /* Assurez-vous qu'elle soit au-dessus de tout autre élément */
+}
