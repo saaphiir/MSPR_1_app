@@ -40,6 +40,16 @@ video {
     border-radius: 10%;
 }
 
+.centeredImage {
+    position: fixed; /* position fixe pour centrer l'image */
+    top: 50%; /* positionnement à 50% du haut */
+    left: 50%; /* positionnement à 50% de la gauche */
+    transform: translate(-50%, -50%) rotate(90deg) scale(1.25); /* déplacement de l'image de moitié de sa largeur et hauteur pour la centrer */
+    border: #31c48d 20px solid;
+    border-radius: 10%;
+    z-index: 9999; /* assurez-vous que l'image s'affiche au-dessus de tout le reste */
+}
+
 .vertical-line {
     position: fixed; /* Position fixe pour la rendre visible peu importe le défilement */
     top: 0; /* Ajustez la position si nécessaire */
