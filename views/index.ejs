@@ -33,15 +33,31 @@
     </div>
         
     <!-- Ajoutez cet élément <a> dans votre HTML -->
-<a id="downloadLink" style="display:none"></a>
+    <a id="downloadLink" style="display:none"></a>
+
+    <div class="red_circle"></div>
+    <div class="green_circle"></div>
+    <div class="recadrer"></div>
+
 
 <script>
     const bouton = document.getElementById('imageCliquable');
     const canvas = document.getElementById('canvasElement');
-    const context = canvas.getContext('2d');
+    const context = canvas.getContext('2d');    
+    const red_circle = document.querySelector('.red_circle'); // Sélectionnez l'élément avec la classe red_circle
+    const green_circle = document.querySelector('.green_circle'); // Sélectionnez l'élément avec la classe red_circle
+    const recadrer = document.querySelector('.recadrer'); // Sélectionnez l'élément avec la classe red_circle
+
 
     bouton.addEventListener('click', function() {
-        
+
+        video.classList.add('hidden');
+        bouton.classList.add('hidden');
+
+        red_circle.style.display = 'block'; // ou 'inline-block' selon votre besoin
+        green_circle.style.display = 'block'; // ou 'inline-block' selon votre besoin
+        recadrer.style.display = 'block'; // ou 'inline-block' selon votre besoin
+
         context.drawImage(video, 0, 0, canvas.width, canvas.height);
         
         const image = canvas.toDataURL('image/png');
@@ -64,8 +80,6 @@
         canvas.height = video.videoHeight;
     });
 </script>
-
-   
 
     <div class="vertical-line"></div>
     <div class="horizontal-line"></div>
