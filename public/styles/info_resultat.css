@@ -9,6 +9,17 @@ body{
     font-family: 'Coolvetica', sans-serif;
 }
 
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Couleur semi-transparente noire */
+    z-index: 999; /* Assurez-vous que l'overlay est au-dessus de tout le contenu */
+    /* display: none; */
+}
+
 .info_container{
     position: fixed;
     left: 10%;

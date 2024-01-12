@@ -60,7 +60,7 @@
             canvas.height = video.videoHeight;
 });
     </script>
-    <div class="info_container show"> 
+    <div class="info_container show" id="info_container"> <!-- show/hide pour montre/cacher les infos des animaux -->
         <!-- optimiser le code: répétition de row -->
         <div class="column">
             <div class="row">
@@ -101,5 +101,7 @@
             </div>
         </div>
     </div>
+    <div id="overlay"></div>
+    <script src="/scripts/infos_animaux.js"></script>
 </body>
 </html>
