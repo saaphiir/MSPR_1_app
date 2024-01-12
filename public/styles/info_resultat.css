@@ -1,0 +1,110 @@
+@font-face {
+    font-family: 'Coolvetica'; 
+    src: url('/police/coolvetica/coolvetica_rg.otf') format('otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+    font-family: 'Coolvetica', sans-serif;
+}
+
+.info_container{
+    position: fixed;
+    left: 10%;
+    top: 30%;
+    right: 10%;
+    bottom: 0;
+    background-color: #D1CDCA;
+    border-radius: 10px;
+    border: gray 2px solid;
+    box-shadow: 5px -5px 5px 0px rgba(0,0,0,0.18);
+    z-index: 10000;
+    overflow: auto;
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10% 10% 0 10%;
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+}
+
+.separateur {
+    width: 2px; /* Épaisseur de la ligne */
+    height: 100px; /* Hauteur de la ligne */
+    background-color: #31c48d; /* Couleur de la ligne (noir dans cet exemple) */
+    position: relative;
+}
+
+.separateur::before,
+.separateur::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    background-color: #31c48d;
+}
+
+.separateur::before {
+    height: 100%; /* Longueur de la première section de la ligne */
+    top: 120px;
+    left: 0;
+}
+
+.separateur::after {
+    height: 100%; /* Longueur de la deuxième section de la ligne */
+    bottom: -20px;
+    left: 0;
+}
+
+.info_animal_img{
+    width: 70%;
+    border-radius: 5%;
+    box-shadow: 0px 0px 23px 7px rgba(0,0,0,0.26);
+}
+
+h1{
+    color: #31c48d;
+}
+
+h2{
+    color: #31c48d;
+    text-align: center;
+}
+
+.info_animal_txt{
+    margin-top: -1%;
+    color: black;
+    text-align: justify;
+}
+
+.petit-txt{
+    font-size: 20px;
+    text-wrap: nowrap;
+}
+
+.container_info{
+    overflow: auto;
+    width: 100px;
+    height: 50px;
+    background-color: #E1E0DF;
+    border-radius: 5px;
+    word-wrap: break-word;
+    text-align: center;
+    padding: 2px;
+    color: black;
+    box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.26);
+}
+
+.show{
+    display: block;
+}
+
+.hide{
+    display: none;
+}

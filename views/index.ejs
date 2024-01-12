@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon site avec EJS</title>
     <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/info_resultat.css">
 </head>
 <body>
     <img src="/images/wildlens.png" class="bandeau">
@@ -58,12 +59,47 @@
             canvas.width = video.videoWidth;
             canvas.height = video.videoHeight;
 });
-
-
-    </script>    
-
-    <div class="vertical-line"></div>
-    <div class="horizontal-line"></div>
-
+    </script>
+    <div class="info_container show"> 
+        <!-- optimiser le code: répétition de row -->
+        <div class="column">
+            <div class="row">
+                <img src="/images/img_loup.jpg" class="info_animal_img">
+            </div>
+            <div class="row">
+                <h1>Loup</h1>
+            </div>
+            <div class="row">
+                <p class="info_animal_txt">Quanta autem vis amicitiae sit, ex hoc intellegi maxime potest, quod ex infinita societate generis humani, quam conciliavit ipsa natura.</p>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <h2 class="petit-txt">Nom Latin</h2>
+                    <div class="container_info"></div>
+                    <h2 class="petit-txt">Famille</h2>
+                    <div class="container_info"></div>
+                </div>
+                <div class="separateur"></div>
+                <div class="column">
+                    <h2 class="petit-txt">Région</h2>
+                    <div class="container_info">ezfiezbfjzebfyezvyigeftubezihfbvzetyvgubhnjbhvgcr-deryvubhinhbvcrdervgbhinhbuvycrdev</div>
+                    <h2 class="petit-txt">Taille</h2>
+                    <div class="container_info"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <h2>Habitat</h2>
+                    <p class="info_animal_txt">Quanta autem vis amicitiae sit, ex hoc intellegi maxime potest, quod ex infinita societate generis humani.</p>
+                </div>  
+            </div>
+            <div class="row">
+                <div class="column">
+                    <h2>Fun Fact</h2>
+                    <p class="info_animal_txt">Quanta autem vis amicitiae sit, ex hoc intellegi maxime potest, quod ex infinita societate generis humani.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
