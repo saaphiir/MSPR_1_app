@@ -29,14 +29,15 @@ img {
     justify-content: center; /* Centre l'image horizontalement */
     align-items: center;     /* Centre l'image verticalement */
     height: 100vh;           /* Hauteur de la fenêtre de visualisation */
-    margin-top: 1%;
-
+    margin-top: 5%;    
 }
 
 video {
     transform: rotate(90deg); /* Rotation de 90 degrés */
-    max-width: auto;
-    max-height: auto;
+    max-width: 125%;
+    max-height: 125%;
+    border: #31c48d 20px solid;
+    border-radius: 10%;
 }
 
 .vertical-line {
@@ -56,5 +57,21 @@ video {
     top: 50%; /* Centre verticalement */
     height: 1px; /* Hauteur de la ligne */
     background-color: black; /* Couleur de la ligne */
-    z-index: 9999; /* Assurez-vous qu'elle soit au-dessus de tout autre élément */
+    z-index: 5000; /* Assurez-vous qu'elle soit au-dessus de tout autre élément */
+}
+
+.bouton_principal {
+    background-size: contain; /* Ajustez la taille de l'image pour qu'elle s'adapte au bouton */
+    background-repeat: no-repeat; /* Empêche la répétition de l'image */
+    width: 20%; /* Largeur souhaitée pour le bouton */
+    height: auto; /* Hauteur souhaitée pour le bouton */
+    cursor: pointer; /* Curseur de type main pour indiquer la possibilité de clic */
+    position: fixed; /* Position fixe pour maintenir le bouton au bas de la fenêtre */
+    bottom: 2%; /* Positionne le bouton au bas de la fenêtre */
+    left: 50%; /* Centre horizontalement le bouton */
+    transform: translateX(-50%); /* Ajuste la position pour un centrage parfait */
+    z-index: 9999;
+    border: #31c48d 5px solid;
+    border-radius: 50%;
+    padding: 2%;
 }

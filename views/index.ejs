@@ -11,6 +11,7 @@
     
     <div class="video_align">
         <video id="videoElement" autoplay> Votre navigateur ne détecte aucune caméra.</video>
+        <canvas id="canvasElement" style="display:none;"></canvas>
 
         <script>
             // Obtenez l'élément vidéo
@@ -26,6 +27,41 @@
                 });
         </script>
     </div>
+
+    <div>
+        <img src="/images/logo_bouton_vert.png" class="bouton_principal" id="imageCliquable">
+    </div>
+        
+    <script>
+        // Sélectionnez le bouton par son ID
+        const bouton = document.getElementById('imageCliquable');
+        const canvas = document.getElementById('canvasElement');
+        const context = canvas.getContext('2d');
+
+        // Ajoutez un écouteur d'événement pour le clic
+        bouton.addEventListener('click', function() {
+            // Affichez le canvas et copiez le contenu vidéo dans le canvas
+            canvas.style.display = 'block';
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+        
+        // Convertissez le contenu du canvas en une image
+        const image = canvas.toDataURL('image/png');
+        
+        // Créez un nouvel élément d'image pour afficher l'image capturée (vous pouvez également l'envoyer au serveur ou la télécharger)
+        const capturedImage = document.createElement('img');
+        capturedImage.src = image;
+        document.body.appendChild(capturedImage);  // Ajoutez l'image capturée au corps de la page (ou où vous le souhaitez)
+    });
+
+        // Assurez-vous que le canvas ait la même taille que la vidéo
+        video.addEventListener('loadedmetadata', function() {
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+});
+
+
+    </script>    
+
     <div class="vertical-line"></div>
     <div class="horizontal-line"></div>
 
