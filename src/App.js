@@ -5,9 +5,11 @@ import ImageUploader from './components/ImageUploader';
 function App() {
   return (
     <div className="App">
-      <h1>Animal Print Recognition App</h1>
-      <ImageUploader />
-      {/* Add more components as needed */}
+      <h1>Wild Lens</h1>
+      <div className="image-uploader">
+        <label htmlFor="upload">Choose an image</label>
+        <ImageUploader />
+      </div>
     </div>
   );
 }
