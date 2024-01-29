@@ -25,22 +25,22 @@ img {
 .bandeau {
     max-width: auto; /* Prend toute la largeur de l'écran */
     max-height: auto; /* Ajuste la hauteur en fonction de la taille de l'image */
-    position: fixed; /* Fixe l'image pour qu'elle reste en haut */
-    top: 0; /* Positionne l'image tout en haut de la page */
-    left: 0; /* Positionne l'image tout à gauche */
-    z-index: 0; /* Assure que l'image est au-dessus des autres éléments */
+    position: fixed; 
+    top: 0;
+    left: 0; 
+    z-index: 0;
 }
 
 .video_align {
     display: flex;
-    justify-content: center; /* Centre l'image horizontalement */
-    align-items: center;     /* Centre l'image verticalement */
-    height: 100vh;           /* Hauteur de la fenêtre de visualisation */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     margin-top: 5%;    
 }
 
 video {
-    transform: rotate(90deg); /* Rotation de 90 degrés */
+    transform: rotate(90deg);
     max-width: 125%;
     max-height: 125%;
     border: #31c48d 20px solid;
@@ -49,14 +49,14 @@ video {
 
 .centeredImage {
     display: block;
-    position: fixed; /* position fixe pour centrer l'image */
-    top: 50%; /* positionnement à 50% du haut */
-    left: 50%; /* positionnement à 50% de la gauche */
+    position: fixed; 
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%) rotate(90deg) scale(1.25); /* déplacement de l'image de moitié de sa largeur et hauteur pour la centrer */
     border: #31c48d 20px solid;
     border-radius: 10%;
     margin-top: 5%;
-    z-index: 9999; /* assurez-vous que l'image s'affiche au-dessus de tout le reste */
+    z-index: 9999;
 }
 
 .vertical-line {
@@ -80,14 +80,14 @@ video {
 }
 
 .bouton_principal {
-    background-size: contain; /* Ajustez la taille de l'image pour qu'elle s'adapte au bouton */
-    background-repeat: no-repeat; /* Empêche la répétition de l'image */
-    width: 20%; /* Largeur souhaitée pour le bouton */
-    height: auto; /* Hauteur souhaitée pour le bouton */
-    cursor: pointer; /* Curseur de type main pour indiquer la possibilité de clic */
-    position: fixed; /* Position fixe pour maintenir le bouton au bas de la fenêtre */
-    bottom: 2%; /* Positionne le bouton au bas de la fenêtre */
-    left: 50%; /* Centre horizontalement le bouton */
+    background-size: contain; 
+    background-repeat: no-repeat;
+    width: 20%; 
+    height: auto; 
+    cursor: pointer; 
+    position: fixed; 
+    bottom: 2%; 
+    left: 50%;
     transform: translateX(-50%); /* Ajuste la position pour un centrage parfait */
     z-index: 9999;
     border: #31c48d 5px solid;
@@ -98,14 +98,14 @@ video {
 .red_circle {
     background-size: contain; /* Ajustez la taille de l'image pour qu'elle s'adapte au bouton */
     background-repeat: no-repeat; /* Empêche la répétition de l'image */
-    width: 15%; /* Largeur souhaitée pour le bouton */
-    height: auto; /* Hauteur souhaitée pour le bouton */
+    width: 15%;
+    height: auto;
     display: none;
     position: fixed;
     top: 88%;
     left: 20%;
     transform: translateX(-50%);
-    z-index: 5009999999990; /* Assurez-vous qu'elle soit au-dessus de tout autre élément */
+    z-index: 5009999999990;
     border: #ff0000 5px solid;
     border-radius: 50%;
     padding: 2%;
@@ -114,30 +114,30 @@ video {
 .green_circle {
     background-size: contain; /* Ajustez la taille de l'image pour qu'elle s'adapte au bouton */
     background-repeat: no-repeat; /* Empêche la répétition de l'image */
-    width: 15%; /* Largeur souhaitée pour le bouton */
-    height: auto; /* Hauteur souhaitée pour le bouton */
+    width: 15%; 
+    height: auto;
     display: none;
-    position: fixed; /* Position fixe pour la rendre visible peu importe le défilement */
-    top: 88%; /* Centre verticalement */
+    position: fixed;
+    top: 88%;
     left: 80%;
     transform: translateX(-50%);
-    z-index: 5009999999990; /* Assurez-vous qu'elle soit au-dessus de tout autre élément */
+    z-index: 5009999999990;
     border: #00ff73 5px solid;
     border-radius: 50%;
     padding: 2%;
 }
 
 .recadrer {
-    background-size: contain; /* Ajustez la taille de l'image pour qu'elle s'adapte au bouton */
-    background-repeat: no-repeat; /* Empêche la répétition de l'image */
-    width: 15%; /* Largeur souhaitée pour le bouton */
-    height: auto; /* Hauteur souhaitée pour le bouton */
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    width: 15%;
+    height: auto;
     display: none;
-    position: fixed; /* Position fixe pour la rendre visible peu importe le défilement */
-    top: 88%; /* Centre verticalement */
+    position: fixed;
+    top: 88%; 
     left: 50%;
     transform: translateX(-50%);
-    z-index: 5009999999990; /* Assurez-vous qu'elle soit au-dessus de tout autre élément */
+    z-index: 5009999999990;
     border: #000000 5px solid;
     border-radius: 50%;
     padding: 2%;

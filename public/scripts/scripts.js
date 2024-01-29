@@ -64,15 +64,22 @@ green_bouton.addEventListener('click', function() {
     green_bouton.style.display = 'none';
     recadrer.style.display = 'none';
 
-    info_animaux_ON = 1
+    
+    setTimeout(function(){
+        info_animaux_ON = 1
+    }, 1000);
 });
 
 
 document.addEventListener("DOMContentLoaded", function() {
     document.addEventListener("click", function(event) {
         if (!info_container.contains(event.target) && info_animaux_ON == 1) {
-            info_container.style.display = 'block';
-            overlay.style.display = 'block';
+            info_container.style.display = 'none';
+            overlay.style.display = 'none';
+
+            video.style.display = "block";
+            bouton.style.display = 'block'; 
+            info_animaux_ON = 0
         }
     });
 });
