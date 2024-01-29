@@ -33,25 +33,48 @@
         <img src="/images/logo_bouton_vert.png" class="bouton_principal" id="imageCliquable">
     </div>
         
-    <script>
-        // Sélectionnez le bouton par son ID
-        const bouton = document.getElementById('imageCliquable');
-        const canvas = document.getElementById('canvasElement');
-        const context = canvas.getContext('2d');
+    <!-- Ajoutez cet élément <a> dans votre HTML -->
+    <a id="downloadLink" style="display:none"></a>
 
-        // Ajoutez un écouteur d'événement pour le clic
-        bouton.addEventListener('click', function() {
-            // Affichez le canvas et copiez le contenu vidéo dans le canvas
-            canvas.style.display = 'block';
-            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+    <div class="red_circle"></div>
+    <div class="green_circle"></div>
+    <div class="recadrer"></div>
+
+
+<script>
+    const bouton = document.getElementById('imageCliquable');
+    const canvas = document.getElementById('canvasElement');
+    const context = canvas.getContext('2d');    
+    const red_circle = document.querySelector('.red_circle'); // Sélectionnez l'élément avec la classe red_circle
+    const green_circle = document.querySelector('.green_circle'); // Sélectionnez l'élément avec la classe red_circle
+    const recadrer = document.querySelector('.recadrer'); // Sélectionnez l'élément avec la classe red_circle
+
+
+    bouton.addEventListener('click', function() {
+
+        video.classList.add('hidden');
+        bouton.classList.add('hidden');
+
+        red_circle.style.display = 'block'; // ou 'inline-block' selon votre besoin
+        green_circle.style.display = 'block'; // ou 'inline-block' selon votre besoin
+        recadrer.style.display = 'block'; // ou 'inline-block' selon votre besoin
+
+        context.drawImage(video, 0, 0, canvas.width, canvas.height);
         
-        // Convertissez le contenu du canvas en une image
         const image = canvas.toDataURL('image/png');
         
-        // Créez un nouvel élément d'image pour afficher l'image capturée (vous pouvez également l'envoyer au serveur ou la télécharger)
         const capturedImage = document.createElement('img');
         capturedImage.src = image;
-        document.body.appendChild(capturedImage);  // Ajoutez l'image capturée au corps de la page (ou où vous le souhaitez)
+        capturedImage.id = 'fullScreenImage';  // Ajoutez un ID pour cibler l'image en CSS
+        document.body.appendChild(capturedImage);
+
+        // Ajoutez la classe pour centrer l'image
+        capturedImage.classList.add('centeredImage');
+
+        const downloadLink = document.getElementById('downloadLink');
+        downloadLink.href = image;
+        downloadLink.download = 'captured-image.png';
+        downloadLink.click();
     });
 
         // Assurez-vous que le canvas ait la même taille que la vidéo
@@ -103,5 +126,8 @@
     </div>
     <div id="overlay"></div>
     <script src="/scripts/infos_animaux.js"></script>
+
+
+
 </body>
 </html>
