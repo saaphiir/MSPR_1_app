@@ -48,67 +48,6 @@
         <img src="/images/recadrer.png" class="recadrer" id="recadrer_bouton">
     </div>
 
-
-<script>
-    const bouton = document.getElementById('imageCliquable');
-    const red_bouton = document.getElementById('red_bouton')
-    const green_bouton = document.getElementById('green_bouton')
-    const canvas = document.getElementById('canvasElement');
-    const context = canvas.getContext('2d');    
-    const red_circle = document.querySelector('.red_circle');
-    const green_circle = document.querySelector('.green_circle');
-    const recadrer = document.querySelector('.recadrer');
-    const capturedImage = document.createElement('img');
-
-        bouton.addEventListener('click', function() {
-
-        video.style.display = "block";
-        bouton.style.display = 'none'; 
-        red_bouton.style.display = 'block';
-        green_bouton.style.display = 'block'; 
-        recadrer.style.display = 'block'; 
-
-        context.drawImage(video, 0, 0, canvas.width, canvas.height);
-        
-        const image = canvas.toDataURL('image/png');
-        
-        
-        capturedImage.src = image;
-        capturedImage.id = 'fullScreenImage';  // Ajoutez un ID pour cibler l'image en CSS
-        document.body.appendChild(capturedImage);
-        // Ajoutez la classe pour centrer l'image
-        capturedImage.classList.add('centeredImage');
-
-        const downloadLink = document.getElementById('downloadLink');
-        downloadLink.href = image;
-        downloadLink.download = 'captured-image.png';
-        downloadLink.click();
-        capturedImage.style.display = 'block';
-    });
-    video.addEventListener('loadedmetadata', function() {
-        canvas.width = video.videoWidth;
-        canvas.height = video.videoHeight;
-    });
-
-    red_bouton.addEventListener('click', function() {
-
-        video.style.display = "block";
-        bouton.style.display = 'block'; // ou 'inline-block' selon votre besoin
-        red_bouton.style.display = 'none'; // ou 'inline-block' selon votre besoin
-        green_bouton.style.display = 'none'; // ou 'inline-block' selon votre besoin
-        recadrer.style.display = 'none'; // ou 'inline-block' selon votre besoin
-        capturedImage.style.display = 'none';
-    });
-
-    green_bouton.addEventListener('click', function() {
-        video.classList.add('show');
-        bouton.style.display = 'block'; // ou 'inline-block' selon votre besoin
-        red_bouton.style.display = 'none'; // ou 'inline-block' selon votre besoin
-        green_bouton.style.display = 'none'; // ou 'inline-block' selon votre besoin
-        recadrer.style.display = 'none'; // ou 'inline-block' selon votre besoin
-        capturedImage.style.display = 'none';
-    });
-    </script>
     <div class="info_container hide" id="info_container"> <!-- show/hide pour montre/cacher les infos des animaux -->
         <!-- optimiser le code: répétition de row -->
         <div class="column">
@@ -150,7 +89,7 @@
             </div>
         </div>
     </div>
-    <div id="overlay" class="hide"></div>
-    <script src="/scripts/infos_animaux.js"></script>
+    <div id="overlay"></div>
+    <script src="/scripts/scripts.js"></script>
 </body>
 </html>

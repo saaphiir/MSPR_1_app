@@ -16,9 +16,9 @@ body{
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Couleur semi-transparente noire */
-    z-index: 999; /* Assurez-vous que l'overlay est au-dessus de tout le contenu */
-    /* display: none; */
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
 }
 
 .info_container{
@@ -48,9 +48,9 @@ body{
 }
 
 .separateur {
-    width: 2px; /* Épaisseur de la ligne */
-    height: 100px; /* Hauteur de la ligne */
-    background-color: #31c48d; /* Couleur de la ligne (noir dans cet exemple) */
+    width: 2px;
+    height: 100px; 
+    background-color: #31c48d; 
     position: relative;
 }
 
@@ -63,14 +63,13 @@ body{
 }
 
 .separateur::before {
-    height: 100%; /* Longueur de la première section de la ligne */
+    height: 100%; 
     top: 120px;
     left: 0;
 }
 
 .separateur::after {
-    height: 100%; /* Longueur de la deuxième section de la ligne */
-    bottom: -20px;
+    height: 100%;
     left: 0;
 }
 
