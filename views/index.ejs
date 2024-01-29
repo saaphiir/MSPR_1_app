@@ -35,34 +35,43 @@
     <!-- Ajoutez cet élément <a> dans votre HTML -->
     <a id="downloadLink" style="display:none"></a>
 
-    <div class="red_circle"></div>
-    <div class="green_circle"></div>
-    <div class="recadrer"></div>
+    <div>
+        <img src="/images/croix.jpg" class="red_circle" id="red_bouton">
+    </div>
+
+    <div>
+        <img src="/images/coche.jpg" class="green_circle" id="green_bouton">
+    </div>
+
+    <div>
+        <img src="/images/recadrer.png" class="recadrer" id="recadrer_bouton">
+    </div>
 
 
 <script>
     const bouton = document.getElementById('imageCliquable');
+    const red_bouton = document.getElementById('red_bouton')
+    const green_bouton = document.getElementById('green_bouton')
     const canvas = document.getElementById('canvasElement');
     const context = canvas.getContext('2d');    
     const red_circle = document.querySelector('.red_circle'); // Sélectionnez l'élément avec la classe red_circle
     const green_circle = document.querySelector('.green_circle'); // Sélectionnez l'élément avec la classe red_circle
     const recadrer = document.querySelector('.recadrer'); // Sélectionnez l'élément avec la classe red_circle
-
+    const capturedImage = document.createElement('img');
 
     bouton.addEventListener('click', function() {
 
-        video.classList.add('hidden');
-        bouton.classList.add('hidden');
-
-        red_circle.style.display = 'block'; // ou 'inline-block' selon votre besoin
-        green_circle.style.display = 'block'; // ou 'inline-block' selon votre besoin
+        video.style.display = "block";
+        bouton.style.display = 'none'; // ou 'inline-block' selon votre besoin
+        red_bouton.style.display = 'block'; // ou 'inline-block' selon votre besoin
+        green_bouton.style.display = 'block'; // ou 'inline-block' selon votre besoin
         recadrer.style.display = 'block'; // ou 'inline-block' selon votre besoin
 
         context.drawImage(video, 0, 0, canvas.width, canvas.height);
         
         const image = canvas.toDataURL('image/png');
         
-        const capturedImage = document.createElement('img');
+        
         capturedImage.src = image;
         capturedImage.id = 'fullScreenImage';  // Ajoutez un ID pour cibler l'image en CSS
         document.body.appendChild(capturedImage);
@@ -74,11 +83,35 @@
         downloadLink.href = image;
         downloadLink.download = 'captured-image.png';
         downloadLink.click();
+        capturedImage.style.display = 'block';
     });
     video.addEventListener('loadedmetadata', function() {
         canvas.width = video.videoWidth;
         canvas.height = video.videoHeight;
     });
+
+    red_bouton.addEventListener('click', function() {
+
+        video.style.display = "block";
+        bouton.style.display = 'block'; // ou 'inline-block' selon votre besoin
+        red_bouton.style.display = 'none'; // ou 'inline-block' selon votre besoin
+        green_bouton.style.display = 'none'; // ou 'inline-block' selon votre besoin
+        recadrer.style.display = 'none'; // ou 'inline-block' selon votre besoin
+        capturedImage.style.display = 'none';
+
+});
+
+    green_bouton.addEventListener('click', function() {
+
+    video.classList.add('show');
+    bouton.style.display = 'block'; // ou 'inline-block' selon votre besoin
+    red_bouton.style.display = 'none'; // ou 'inline-block' selon votre besoin
+    green_bouton.style.display = 'none'; // ou 'inline-block' selon votre besoin
+    recadrer.style.display = 'none'; // ou 'inline-block' selon votre besoin
+    capturedImage.style.display = 'none';
+
+});
+
 </script>
 
     <div class="vertical-line"></div>
