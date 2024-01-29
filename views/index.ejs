@@ -36,95 +36,62 @@
     <!-- Ajoutez cet élément <a> dans votre HTML -->
     <a id="downloadLink" style="display:none"></a>
 
-    <div class="red_circle"></div>
-    <div class="green_circle"></div>
-    <div class="recadrer"></div>
+    <div>
+        <img src="/images/croix.jpg" class="red_circle" id="red_bouton">
+    </div>
+
+    <div>
+        <img src="/images/coche.jpg" class="green_circle" id="green_bouton">
+    </div>
+
+    <div>
+        <img src="/images/recadrer.png" class="recadrer" id="recadrer_bouton">
+    </div>
 
 
-    <script>
-        const bouton = document.getElementById('imageCliquable');
-        const canvas = document.getElementById('canvasElement');
-        const context = canvas.getContext('2d');    
-        const red_circle = document.querySelector('.red_circle'); // Sélectionnez l'élément avec la classe red_circle
-        const green_circle = document.querySelector('.green_circle'); // Sélectionnez l'élément avec la classe red_circle
-        const recadrer = document.querySelector('.recadrer'); // Sélectionnez l'élément avec la classe red_circle
+<script>
+    const bouton = document.getElementById('imageCliquable');
+    const canvas = document.getElementById('canvasElement');
+    const context = canvas.getContext('2d');    
+    const red_circle = document.querySelector('.red_circle'); // Sélectionnez l'élément avec la classe red_circle
+    const green_circle = document.querySelector('.green_circle'); // Sélectionnez l'élément avec la classe red_circle
+    const recadrer = document.querySelector('.recadrer'); // Sélectionnez l'élément avec la classe red_circle
 
 
         bouton.addEventListener('click', function() {
 
-            video.classList.add('hidden');
-            bouton.classList.add('hidden');
+        video.classList.add('hidden');
+        bouton.classList.add('hidden');
 
-            red_circle.style.display = 'block'; // ou 'inline-block' selon votre besoin
-            green_circle.style.display = 'block'; // ou 'inline-block' selon votre besoin
-            recadrer.style.display = 'block'; // ou 'inline-block' selon votre besoin
+        red_circle.style.display = 'block'; // ou 'inline-block' selon votre besoin
+        green_circle.style.display = 'block'; // ou 'inline-block' selon votre besoin
+        recadrer.style.display = 'block'; // ou 'inline-block' selon votre besoin
 
-            context.drawImage(video, 0, 0, canvas.width, canvas.height);
-            
-            const image = canvas.toDataURL('image/png');
-            
-            const capturedImage = document.createElement('img');
-            capturedImage.src = image;
-            capturedImage.id = 'fullScreenImage';  // Ajoutez un ID pour cibler l'image en CSS
-            document.body.appendChild(capturedImage);
+        context.drawImage(video, 0, 0, canvas.width, canvas.height);
+        
+        const image = canvas.toDataURL('image/png');
+        
+        const capturedImage = document.createElement('img');
+        capturedImage.src = image;
+        capturedImage.id = 'fullScreenImage';  // Ajoutez un ID pour cibler l'image en CSS
+        document.body.appendChild(capturedImage);
 
             // Ajoutez la classe pour centrer l'image
             capturedImage.classList.add('centeredImage');
 
-            const downloadLink = document.getElementById('downloadLink');
-            downloadLink.href = image;
-            downloadLink.download = 'captured-image.png';
-            downloadLink.click();
-        });
+        const downloadLink = document.getElementById('downloadLink');
+        downloadLink.href = image;
+        downloadLink.download = 'captured-image.png';
+        downloadLink.click();
+    });
+    video.addEventListener('loadedmetadata', function() {
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+    });
+</script>
 
-            // Assurez-vous que le canvas ait la même taille que la vidéo
-        video.addEventListener('loadedmetadata', function() {
-            canvas.width = video.videoWidth;
-            canvas.height = video.videoHeight;
-        });
-    </script>
-    <div class="info_container hide" id="info_container"> <!-- show/hide pour montre/cacher les infos des animaux -->
-        <!-- optimiser le code: répétition de row -->
-        <div class="column">
-            <div class="row">
-                <img src="/images/img_loup.jpg" class="info_animal_img">
-            </div>
-            <div class="row">
-                <h1>Loup</h1>
-            </div>
-            <div class="row">
-                <p class="info_animal_txt">Quanta autem vis amicitiae sit, ex hoc intellegi maxime potest, quod ex infinita societate generis humani, quam conciliavit ipsa natura.</p>
-            </div>
-            <div class="row">
-                <div class="column">
-                    <h2 class="petit-txt">Nom Latin</h2>
-                    <div class="container_info"></div>
-                    <h2 class="petit-txt">Famille</h2>
-                    <div class="container_info"></div>
-                </div>
-                <div class="separateur"></div>
-                <div class="column">
-                    <h2 class="petit-txt">Région</h2>
-                    <div class="container_info">ezfiezbfjzebfyezvyigeftubezihfbvzetyvgubhnjbhvgcr-deryvubhinhbvcrdervgbhinhbuvycrdev</div>
-                    <h2 class="petit-txt">Taille</h2>
-                    <div class="container_info"></div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="column">
-                    <h2>Habitat</h2>
-                    <p class="info_animal_txt">Quanta autem vis amicitiae sit, ex hoc intellegi maxime potest, quod ex infinita societate generis humani.</p>
-                </div>  
-            </div>
-            <div class="row">
-                <div class="column">
-                    <h2>Fun Fact</h2>
-                    <p class="info_animal_txt">Quanta autem vis amicitiae sit, ex hoc intellegi maxime potest, quod ex infinita societate generis humani.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="overlay"></div>
-    <script src="/scripts/infos_animaux.js"></script>
+    <div class="vertical-line"></div>
+    <div class="horizontal-line"></div>
+
 </body>
 </html>
