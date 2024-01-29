@@ -41,49 +41,49 @@
     <div class="recadrer"></div>
 
 
-<script>
-    const bouton = document.getElementById('imageCliquable');
-    const canvas = document.getElementById('canvasElement');
-    const context = canvas.getContext('2d');    
-    const red_circle = document.querySelector('.red_circle'); // Sélectionnez l'élément avec la classe red_circle
-    const green_circle = document.querySelector('.green_circle'); // Sélectionnez l'élément avec la classe red_circle
-    const recadrer = document.querySelector('.recadrer'); // Sélectionnez l'élément avec la classe red_circle
+    <script>
+        const bouton = document.getElementById('imageCliquable');
+        const canvas = document.getElementById('canvasElement');
+        const context = canvas.getContext('2d');    
+        const red_circle = document.querySelector('.red_circle'); // Sélectionnez l'élément avec la classe red_circle
+        const green_circle = document.querySelector('.green_circle'); // Sélectionnez l'élément avec la classe red_circle
+        const recadrer = document.querySelector('.recadrer'); // Sélectionnez l'élément avec la classe red_circle
 
 
-    bouton.addEventListener('click', function() {
+        bouton.addEventListener('click', function() {
 
-        video.classList.add('hidden');
-        bouton.classList.add('hidden');
+            video.classList.add('hidden');
+            bouton.classList.add('hidden');
 
-        red_circle.style.display = 'block'; // ou 'inline-block' selon votre besoin
-        green_circle.style.display = 'block'; // ou 'inline-block' selon votre besoin
-        recadrer.style.display = 'block'; // ou 'inline-block' selon votre besoin
+            red_circle.style.display = 'block'; // ou 'inline-block' selon votre besoin
+            green_circle.style.display = 'block'; // ou 'inline-block' selon votre besoin
+            recadrer.style.display = 'block'; // ou 'inline-block' selon votre besoin
 
-        context.drawImage(video, 0, 0, canvas.width, canvas.height);
-        
-        const image = canvas.toDataURL('image/png');
-        
-        const capturedImage = document.createElement('img');
-        capturedImage.src = image;
-        capturedImage.id = 'fullScreenImage';  // Ajoutez un ID pour cibler l'image en CSS
-        document.body.appendChild(capturedImage);
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+            
+            const image = canvas.toDataURL('image/png');
+            
+            const capturedImage = document.createElement('img');
+            capturedImage.src = image;
+            capturedImage.id = 'fullScreenImage';  // Ajoutez un ID pour cibler l'image en CSS
+            document.body.appendChild(capturedImage);
 
-        // Ajoutez la classe pour centrer l'image
-        capturedImage.classList.add('centeredImage');
+            // Ajoutez la classe pour centrer l'image
+            capturedImage.classList.add('centeredImage');
 
-        const downloadLink = document.getElementById('downloadLink');
-        downloadLink.href = image;
-        downloadLink.download = 'captured-image.png';
-        downloadLink.click();
-    });
+            const downloadLink = document.getElementById('downloadLink');
+            downloadLink.href = image;
+            downloadLink.download = 'captured-image.png';
+            downloadLink.click();
+        });
 
-        // Assurez-vous que le canvas ait la même taille que la vidéo
+            // Assurez-vous que le canvas ait la même taille que la vidéo
         video.addEventListener('loadedmetadata', function() {
             canvas.width = video.videoWidth;
             canvas.height = video.videoHeight;
         });
     </script>
-    <div class="info_container show" id="info_container"> <!-- show/hide pour montre/cacher les infos des animaux -->
+    <div class="info_container" id="info_container"> <!-- show/hide pour montre/cacher les infos des animaux -->
         <!-- optimiser le code: répétition de row -->
         <div class="column">
             <div class="row">
