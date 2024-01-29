@@ -51,47 +51,106 @@
 
 <script>
     const bouton = document.getElementById('imageCliquable');
+    const red_bouton = document.getElementById('red_bouton')
+    const green_bouton = document.getElementById('green_bouton')
     const canvas = document.getElementById('canvasElement');
     const context = canvas.getContext('2d');    
-    const red_circle = document.querySelector('.red_circle'); // Sélectionnez l'élément avec la classe red_circle
-    const green_circle = document.querySelector('.green_circle'); // Sélectionnez l'élément avec la classe red_circle
-    const recadrer = document.querySelector('.recadrer'); // Sélectionnez l'élément avec la classe red_circle
-
+    const red_circle = document.querySelector('.red_circle');
+    const green_circle = document.querySelector('.green_circle');
+    const recadrer = document.querySelector('.recadrer');
+    const capturedImage = document.createElement('img');
 
         bouton.addEventListener('click', function() {
 
-        video.classList.add('hidden');
-        bouton.classList.add('hidden');
-
-        red_circle.style.display = 'block'; // ou 'inline-block' selon votre besoin
-        green_circle.style.display = 'block'; // ou 'inline-block' selon votre besoin
-        recadrer.style.display = 'block'; // ou 'inline-block' selon votre besoin
+        video.style.display = "block";
+        bouton.style.display = 'none'; 
+        red_bouton.style.display = 'block';
+        green_bouton.style.display = 'block'; 
+        recadrer.style.display = 'block'; 
 
         context.drawImage(video, 0, 0, canvas.width, canvas.height);
         
         const image = canvas.toDataURL('image/png');
         
-        const capturedImage = document.createElement('img');
+        
         capturedImage.src = image;
         capturedImage.id = 'fullScreenImage';  // Ajoutez un ID pour cibler l'image en CSS
         document.body.appendChild(capturedImage);
-
-            // Ajoutez la classe pour centrer l'image
-            capturedImage.classList.add('centeredImage');
+        // Ajoutez la classe pour centrer l'image
+        capturedImage.classList.add('centeredImage');
 
         const downloadLink = document.getElementById('downloadLink');
         downloadLink.href = image;
         downloadLink.download = 'captured-image.png';
         downloadLink.click();
+        capturedImage.style.display = 'block';
     });
     video.addEventListener('loadedmetadata', function() {
         canvas.width = video.videoWidth;
         canvas.height = video.videoHeight;
     });
-</script>
 
-    <div class="vertical-line"></div>
-    <div class="horizontal-line"></div>
+    red_bouton.addEventListener('click', function() {
 
+        video.style.display = "block";
+        bouton.style.display = 'block'; // ou 'inline-block' selon votre besoin
+        red_bouton.style.display = 'none'; // ou 'inline-block' selon votre besoin
+        green_bouton.style.display = 'none'; // ou 'inline-block' selon votre besoin
+        recadrer.style.display = 'none'; // ou 'inline-block' selon votre besoin
+        capturedImage.style.display = 'none';
+    });
+
+    green_bouton.addEventListener('click', function() {
+        video.classList.add('show');
+        bouton.style.display = 'block'; // ou 'inline-block' selon votre besoin
+        red_bouton.style.display = 'none'; // ou 'inline-block' selon votre besoin
+        green_bouton.style.display = 'none'; // ou 'inline-block' selon votre besoin
+        recadrer.style.display = 'none'; // ou 'inline-block' selon votre besoin
+        capturedImage.style.display = 'none';
+    });
+    </script>
+    <div class="info_container hide" id="info_container"> <!-- show/hide pour montre/cacher les infos des animaux -->
+        <!-- optimiser le code: répétition de row -->
+        <div class="column">
+            <div class="row">
+                <img src="/images/img_loup.jpg" class="info_animal_img">
+            </div>
+            <div class="row">
+                <h1>Loup</h1>
+            </div>
+            <div class="row">
+                <p class="info_animal_txt">Quanta autem vis amicitiae sit, ex hoc intellegi maxime potest, quod ex infinita societate generis humani, quam conciliavit ipsa natura.</p>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <h2 class="petit-txt">Nom Latin</h2>
+                    <div class="container_info"></div>
+                    <h2 class="petit-txt">Famille</h2>
+                    <div class="container_info"></div>
+                </div>
+                <div class="separateur"></div>
+                <div class="column">
+                    <h2 class="petit-txt">Région</h2>
+                    <div class="container_info">ezfiezbfjzebfyezvyigeftubezihfbvzetyvgubhnjbhvgcr-deryvubhinhbvcrdervgbhinhbuvycrdev</div>
+                    <h2 class="petit-txt">Taille</h2>
+                    <div class="container_info"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <h2>Habitat</h2>
+                    <p class="info_animal_txt">Quanta autem vis amicitiae sit, ex hoc intellegi maxime potest, quod ex infinita societate generis humani.</p>
+                </div>  
+            </div>
+            <div class="row">
+                <div class="column">
+                    <h2>Fun Fact</h2>
+                    <p class="info_animal_txt">Quanta autem vis amicitiae sit, ex hoc intellegi maxime potest, quod ex infinita societate generis humani.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="overlay" class="hide"></div>
+    <script src="/scripts/infos_animaux.js"></script>
 </body>
 </html>

@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     document.addEventListener("click", function(event) {
         if (!info_container.contains(event.target)) {
-            info_container.classList.add("hide");
-            overlay.classList.add("hide");
+            info_container.style.display = 'none';
+            overlay.style.display = 'none';
         }
     });
 });
