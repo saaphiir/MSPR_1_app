@@ -29,49 +29,60 @@
     <div>
         <img src="/images/recadrer.png" class="recadrer" id="recadrer_bouton">
     </div>
-
+    <% if(typeof apiData !== 'undefined'){ %>
+        <script>
+            infos = true
+        </script>
+    <% } else { %>
+        <script>
+            infos = false
+        </script>
+    <% } %>
     <div class="info_container hide" id="info_container">
+        <% if(typeof apiData !== 'undefined'){%>
         <div class="column">
             <div class="row">
-                <img src="/images/img_loup.jpg" class="info_animal_img">
+                <img src= <%= apiData.photo_presentation_url %> class="info_animal_img">
+            </div>  
+            <div class="row">
+                <h1><%= apiData.espece %></h1>
             </div>
             <div class="row">
-                <h1>Loup</h1>
-            </div>
-            <div class="row">
-                <p class="info_animal_txt">Quanta autem vis amicitiae sit, ex hoc intellegi maxime potest, quod ex infinita societate generis humani, quam conciliavit ipsa natura.</p>
+                <p class="info_animal_txt"><%= apiData.description %></p>
             </div>
             <div class="row">
                 <div class="column">
                     <h2 class="petit-txt">Nom Latin</h2>
-                    <div class="container_info"></div>
+                    <div class="container_info"><%= apiData.nom_latin %></div>
                     <h2 class="petit-txt">Famille</h2>
-                    <div class="container_info"></div>
+                    <div class="container_info"><%= apiData.famille %></div>
                 </div>
                 <div class="separateur"></div>
                 <div class="column">
                     <h2 class="petit-txt">Région</h2>
-                    <div class="container_info">ezfiezbfjzebfyezvyigeftubezihfbvzetyvgubhnjbhvgcr-deryvubhinhbvcrdervgbhinhbuvycrdev</div>
+                    <div class="container_info"><%= apiData.region_str %></div>
                     <h2 class="petit-txt">Taille</h2>
-                    <div class="container_info"></div>
+                    <div class="container_info"><%= apiData.taille_str %></div>
                 </div>
             </div>
             <div class="row">
                 <div class="column">
                     <h2>Habitat</h2>
-                    <p class="info_animal_txt">Quanta autem vis amicitiae sit, ex hoc intellegi maxime potest, quod ex infinita societate generis humani.</p>
+                    <p class="info_animal_txt"><%= apiData.habitat %></p>
                 </div>  
             </div>
             <div class="row">
                 <div class="column">
                     <h2>Fun Fact</h2>
-                    <p class="info_animal_txt">Quanta autem vis amicitiae sit, ex hoc intellegi maxime potest, quod ex infinita societate generis humani.</p>
+                    <p class="info_animal_txt"><%= apiData.fun_fact %></p>
                 </div>
             </div>
         </div>
+        <% } else { %>
+            <h1>pas d'overlay</h1>
+            <% } %>
     </div>
     <div id="overlay"></div>
     <script src="/scripts/scripts.js"></script>
-    <script src="/scripts/apiData.js"></script>
 </body>
 </html>

@@ -64,6 +64,10 @@ red_bouton.addEventListener('click', function() {
 });
 
 green_bouton.addEventListener('click', function() {
+    window.location.href = window.location.origin + "/api-data";
+});
+
+if(infos){
     info_container.style.display = 'block';
     overlay.style.display = 'block';
 
@@ -72,12 +76,12 @@ green_bouton.addEventListener('click', function() {
     green_bouton.style.display = 'none';
     recadrer.style.display = 'none';
     
-    downloadLink.click();
+    // downloadLink.click();
     
     setTimeout(function(){
         info_animaux_ON = 1
     }, 1000);
-});
+}
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -90,6 +94,7 @@ document.addEventListener("DOMContentLoaded", function() {
             video.style.display = "block";
             bouton.style.display = 'block';
             info_animaux_ON = 0
+            infos = false
         }
     });
 });

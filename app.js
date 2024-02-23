@@ -16,10 +16,28 @@ app.use(session({
   saveUninitialized: true
 }));
 
+function requeteApi(){
+  return {
+    "id": 1,
+    "espece": "Loup",
+    "description": "Le loup gris commun, appelé également le loup européen ou le loup vulgaire, est un mammifère carnivore de la famille des canidés.",
+    "famille": "Mammifère",
+    "nom_latin": "Canis lupus lupus",
+    "taille_str": "0,90 à 1,10 m pour les femelles; 1 à 1,30 m pour les mâles",
+    "taille_min": 0.90,  // Taille en mètre
+    "taille_max": 1.10,
+    "region_str": "Eurasie",
+    "habitat": "Le loup gris commun vit dans les forêts tempérées, les massifs montagneux (Alpes), les plaines, les grandes steppes eurasiennes, les environnements escarpés et isolés.",
+    "fun_fact": "Les loups solitaires sont le plus souvent des loups qui ont été chassés de leur meute.",
+    "photo_presentation_url": "https://ilsera.com/BtzImages/Est_ce_naturel_Loup.jpg"
+  }
+}
+
 app.get('/', (req, res) => {
-  const apiData = req.session.apiData;
   if(req.session.apiData){
-    res.render('index', { apiData });
+    setTimeout(function(){ // vérifier si on peut enlever le timeout apres pull API et affichage des données
+      res.render('index', { apiData: req.session.apiData});
+  }, 1000);
   }
   else{
     res.render('index');
@@ -28,16 +46,12 @@ app.get('/', (req, res) => {
 
 app.get('/api-data', async (req, res) => {
     try {
-        // URL de l'API que vous souhaitez appeler
-        const apiUrl = 'https://jsonplaceholder.typicode.com/posts/1';
-        const response = await axios.get(apiUrl)
+        // const apiUrl = 'https://jsonplaceholder.typicode.com/posts/1';
+        // const response = await axios.get(apiUrl)
 
-        //console.log(response.data)
-
-        req.session.apiData = 'Valeur de maVariable';
+        req.session.apiData = requeteApi();
         res.redirect('/');
     } catch (error) {
-      // Gérer les erreurs
         console.error('Erreur de requête:', error);
         res.status(500).json({ error: 'Erreur lors de la requête vers l\'API' });
     }
