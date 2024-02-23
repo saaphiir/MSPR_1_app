@@ -6,15 +6,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #ffffff;
-    overflow: hidden; /* Empêche le défilement */
-}
-
-.hidden {
-    display: none;
-}
-
-.show {
-    display: block;
+    overflow: hidden;
 }
 
 img {
@@ -23,8 +15,8 @@ img {
 }
 
 .bandeau {
-    max-width: auto; /* Prend toute la largeur de l'écran */
-    max-height: auto; /* Ajuste la hauteur en fonction de la taille de l'image */
+    max-width: auto;
+    max-height: auto;
     position: fixed; 
     top: 0;
     left: 0; 
@@ -52,31 +44,11 @@ video {
     position: fixed; 
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) rotate(90deg) scale(1.25); /* déplacement de l'image de moitié de sa largeur et hauteur pour la centrer */
+    transform: translate(-50%, -50%) rotate(90deg) scale(1.25);
     border: #31c48d 20px solid;
     border-radius: 10%;
     margin-top: 5%;
-    z-index: 9999;
-}
-
-.vertical-line {
-    position: fixed; /* Position fixe pour la rendre visible peu importe le défilement */
-    top: 0; /* Ajustez la position si nécessaire */
-    bottom: 0; /* Ajustez la position si nécessaire */
-    left: 50%; /* Centre horizontalement */
-    width: 1px; /* Largeur de la ligne */
-    background-color: black; /* Couleur de la ligne */
-    z-index: 9999; /* Assurez-vous qu'elle soit au-dessus de tout autre élément */
-}
-
-.horizontal-line {
-    position: fixed; /* Position fixe pour la rendre visible peu importe le défilement */
-    left: 0; /* Ajustez la position si nécessaire */
-    right: 0; /* Ajustez la position si nécessaire */
-    top: 50%; /* Centre verticalement */
-    height: 1px; /* Hauteur de la ligne */
-    background-color: black; /* Couleur de la ligne */
-    z-index: 5000; /* Assurez-vous qu'elle soit au-dessus de tout autre élément */
+    z-index: 90;
 }
 
 .bouton_principal {
@@ -88,16 +60,16 @@ video {
     position: fixed; 
     bottom: 2%; 
     left: 50%;
-    transform: translateX(-50%); /* Ajuste la position pour un centrage parfait */
-    z-index: 9999;
+    transform: translateX(-50%);
+    z-index: 90;
     border: #31c48d 5px solid;
     border-radius: 50%;
     padding: 2%;
 }
 
 .red_circle {
-    background-size: contain; /* Ajustez la taille de l'image pour qu'elle s'adapte au bouton */
-    background-repeat: no-repeat; /* Empêche la répétition de l'image */
+    background-size: contain;
+    background-repeat: no-repeat;
     width: 15%;
     height: auto;
     display: none;
@@ -105,15 +77,15 @@ video {
     top: 88%;
     left: 20%;
     transform: translateX(-50%);
-    z-index: 5009999999990;
+    z-index: 100;
     border: #ff0000 5px solid;
     border-radius: 50%;
     padding: 2%;
 }
 
 .green_circle {
-    background-size: contain; /* Ajustez la taille de l'image pour qu'elle s'adapte au bouton */
-    background-repeat: no-repeat; /* Empêche la répétition de l'image */
+    background-size: contain;
+    background-repeat: no-repeat;
     width: 15%; 
     height: auto;
     display: none;
@@ -121,7 +93,7 @@ video {
     top: 88%;
     left: 80%;
     transform: translateX(-50%);
-    z-index: 5009999999990;
+    z-index: 100;
     border: #00ff73 5px solid;
     border-radius: 50%;
     padding: 2%;
@@ -137,7 +109,7 @@ video {
     top: 88%; 
     left: 50%;
     transform: translateX(-50%);
-    z-index: 5009999999990;
+    z-index: 100;
     border: #000000 5px solid;
     border-radius: 50%;
     padding: 2%;

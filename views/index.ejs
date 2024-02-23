@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon site avec EJS</title>
+    <title>Wildlens - Reconnaissance d'empreinte</title>
     <link rel="stylesheet" href="/styles/style.css">
     <link rel="stylesheet" href="/styles/info_resultat.css">
 </head>
@@ -13,43 +13,24 @@
     <div class="video_align">
         <video id="videoElement" autoplay> Votre navigateur ne détecte aucune caméra.</video>
         <canvas id="canvasElement" style="display:none;"></canvas>
-
-        <script>
-            // Obtenez l'élément vidéo
-            const video = document.getElementById('videoElement');
-
-            // Demandez l'accès à la caméra
-            navigator.mediaDevices.getUserMedia({ video: true })
-                .then(stream => {
-                    video.srcObject = stream;
-                })
-                .catch(err => {
-                    console.error("Erreur: " + err);
-                });
-        </script>
     </div>
 
     <div>
         <img src="/images/logo_bouton_vert.png" class="bouton_principal" id="imageCliquable">
     </div>
         
-    <!-- Ajoutez cet élément <a> dans votre HTML -->
     <a id="downloadLink" style="display:none"></a>
-
     <div>
         <img src="/images/croix.jpg" class="red_circle" id="red_bouton">
     </div>
-
     <div>
         <img src="/images/coche.jpg" class="green_circle" id="green_bouton">
     </div>
-
     <div>
         <img src="/images/recadrer.png" class="recadrer" id="recadrer_bouton">
     </div>
 
-    <div class="info_container hide" id="info_container"> <!-- show/hide pour montre/cacher les infos des animaux -->
-        <!-- optimiser le code: répétition de row -->
+    <div class="info_container hide" id="info_container">
         <div class="column">
             <div class="row">
                 <img src="/images/img_loup.jpg" class="info_animal_img">
@@ -63,9 +44,9 @@
             <div class="row">
                 <div class="column">
                     <h2 class="petit-txt">Nom Latin</h2>
-                    <div class="container_info"></div>
+                    <div class="container_info"><% apiData.title %></div>
                     <h2 class="petit-txt">Famille</h2>
-                    <div class="container_info"></div>
+                    <div class="container_info"><% apiData.title %></div>
                 </div>
                 <div class="separateur"></div>
                 <div class="column">
@@ -91,5 +72,6 @@
     </div>
     <div id="overlay"></div>
     <script src="/scripts/scripts.js"></script>
+    <script src="/scripts/apiData.js"></script>
 </body>
 </html>

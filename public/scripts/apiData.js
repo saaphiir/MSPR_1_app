@@ -1,0 +1,1 @@
+console.log('Valeur de apiData:', apiData);
