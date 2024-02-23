@@ -32,7 +32,7 @@ app.get('/api-data', async (req, res) => {
         const apiUrl = 'https://jsonplaceholder.typicode.com/posts/1';
         const response = await axios.get(apiUrl)
 
-        console.log(response.data)
+        //console.log(response.data)
 
         req.session.apiData = 'Valeur de maVariable';
         res.redirect('/');
